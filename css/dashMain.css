@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #2b303a;
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 70px;
+  --red: #e74c3c;
+  --green: #2ecc71;
+  --blue: #3498db;
+  --purple: #9b59b6;
+}
+
+/* Layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  background: #f5f6fa;
+}
+
+/* Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logout-btn {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #f1f1f1;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stat-card i {
+  font-size: 2rem;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Card Colors */
+.stat-card.red i { background: var(--red); }
+.stat-card.green i { background: var(--green); }
+.stat-card.blue i { background: var(--blue); }
+.stat-card.purple i { background: var(--purple); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
